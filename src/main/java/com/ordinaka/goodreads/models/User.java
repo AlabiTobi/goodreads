@@ -1,5 +1,10 @@
 package com.ordinaka.goodreads.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.ordinaka.goodreads.models.enums.AccountStatus;
 import com.ordinaka.goodreads.models.enums.Gender;
 import lombok.*;
@@ -53,9 +58,17 @@ public class User {
     @NonNull
     @NotBlank
     private String password;
+
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyy")
     private LocalDateTime dob;
 
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyy")
     private LocalDateTime dateJoined;
+
     private String Location;
 
     @Enumerated(value= EnumType.STRING)
@@ -64,6 +77,13 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

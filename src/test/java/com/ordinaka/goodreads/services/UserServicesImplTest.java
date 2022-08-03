@@ -1,6 +1,6 @@
 package com.ordinaka.goodreads.services;
 
-import com.ordinaka.goodreads.dtos.AccountCreationRequest;
+import com.ordinaka.goodreads.controllers.requestsAndResponse.AccountCreationRequest;
 import com.ordinaka.goodreads.dtos.UserDto;
 import com.ordinaka.goodreads.exceptions.GoodReadsException;
 import com.ordinaka.goodreads.models.User;

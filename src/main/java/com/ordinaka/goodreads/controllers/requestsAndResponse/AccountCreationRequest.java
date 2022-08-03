@@ -1,4 +1,4 @@
-package com.ordinaka.goodreads.dtos;
+package com.ordinaka.goodreads.controllers.requestsAndResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
